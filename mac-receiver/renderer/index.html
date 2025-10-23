@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mirror Receiver</title>
+    <style>
+      body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; }
+      header { padding: 12px; border-bottom: 1px solid #eee; display:flex; align-items:center; justify-content: space-between; }
+      #qrArea { padding: 12px; text-align: center; }
+      #qrImg { width: 240px; height: 240px; image-rendering: pixelated; border: 1px solid #ddd; }
+      #info { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #555; word-break: break-all; margin-top: 8px; }
+      #videoWrap { background: #000; display:flex; align-items:center; justify-content:center; height: calc(100vh - 360px); }
+      video { max-width: 100%; max-height: 100%; }
+      button { padding: 6px 10px; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Mirror Receiver (beta)</div>
+      <div>
+        <button id="showQRBtn" title="Show pairing QR">Show QR</button>
+        <button id="regenBtn" title="Regenerate session">New Session</button>
+        <label style="margin-left:8px;"><input id="aot" type="checkbox" /> Always on top</label>
+      </div>
+    </header>
+    <div id="qrArea">
+      <img id="qrImg" alt="QR code" />
+      <div id="info"></div>
+    </div>
+    <div id="videoControls" style="display:flex; align-items:center; gap:10px; padding: 8px 12px; border-top:1px solid #eee; border-bottom:1px solid #eee;">
+      <label><input id="fitToggle" type="checkbox" checked /> Fit to window</label>
+      <label><input name="zoom" type="radio" value="1" checked /> 100%</label>
+      <label><input name="zoom" type="radio" value="1.5" /> 150%</label>
+      <label><input name="zoom" type="radio" value="2" /> 200%</label>
+      <span id="dimLabel" style="color:#666; font-family: ui-monospace,Menlo,monospace; font-size: 12px;"></span>
+    </div>
+    <div id="videoWrap">
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+  </html>

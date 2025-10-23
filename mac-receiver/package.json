@@ -1,0 +1,31 @@
+{
+  "name": "mirroring-mac-receiver",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "dist": "electron-builder --mac",
+    "build": "electron-builder --mac"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.3",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.yourcompany.mirroringapp.receiver",
+    "productName": "Mirror Receiver",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
+  }
+}

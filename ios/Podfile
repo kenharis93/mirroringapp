@@ -1,0 +1,11 @@
+platform :ios, '15.0'
+use_frameworks!
+
+target 'MirroringApp' do
+  pod 'GoogleWebRTC'
+end
+
+target 'BroadcastUploadExtension' do
+  pod 'GoogleWebRTC'
+end
+
