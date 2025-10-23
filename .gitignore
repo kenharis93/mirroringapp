@@ -1,0 +1,88 @@
+# macOS
+.DS_Store
+
+# General
+*.log
+*.orig
+*.rej
+*.swp
+*.swo
+tmp/
+.cache/
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*.local
+
+# Node/Electron (root + mac-receiver)
+node_modules/
+coverage/
+dist/
+out/
+build/
+.eslintcache
+.parcel-cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Electron builder outputs (scoped to mac-receiver)
+mac-receiver/dist/
+mac-receiver/out/
+mac-receiver/build/
+mac-receiver/*.dmg
+mac-receiver/*.zip
+mac-receiver/*.exe
+mac-receiver/*.msi
+mac-receiver/*.app
+
+# iOS / Xcode
+DerivedData/
+ios/DerivedData/
+ios/build/
+build/
+
+# Xcode user settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Workspace user data only
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# CocoaPods
+Pods/
+.cocoapods/
+
+# Carthage (not used, safe to ignore if present)
+Carthage/
+
+# Fastlane (if used later)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Ruby bundler (if used)
+vendor/bundle/
+

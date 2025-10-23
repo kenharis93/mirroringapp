@@ -92,12 +92,19 @@
 
   async function refreshQR() {
     session = await window.app.getSessionInfo();
+    if (!session.port || session.port === 0) {
+      infoEl.textContent = 'Starting local server…';
+      qrImg.removeAttribute('src');
+      return;
+    }
     const payload = JSON.stringify({ h: session.host, p: session.port, sid: session.sid });
     infoEl.textContent = payload;
     try {
       const dataUrl = await window.app.generateQR(payload);
+      if (!dataUrl) throw new Error('QR IPC returned null');
       qrImg.src = dataUrl;
     } catch (e) {
+      console.error('QR generation failed', e);
       infoEl.textContent += '\n[Failed to render QR]';
     }
   }

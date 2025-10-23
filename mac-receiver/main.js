@@ -11,6 +11,7 @@ let wss;
 let serverPort = 0;
 let localHost = '127.0.0.1';
 let sessionId = '';
+const QRCode = require('qrcode');
 
 const sessions = new Map(); // sid -> { sender, viewer, qToSender, qToViewer }
 
@@ -164,9 +165,15 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+  ipcMain.handle('generate-qr', async (_evt, text) => {
+    try {
+      return await QRCode.toDataURL(String(text || ''));
+    } catch (e) {
+      return null;
+    }
+  });
 });
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
-
